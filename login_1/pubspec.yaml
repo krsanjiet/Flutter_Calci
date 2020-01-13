@@ -37,6 +37,7 @@ flutter:
   assets:
     - assets/flutter.png
     - assets/password.png
+    - assets/backgroundtheme1.png
     
 
   # The following line ensures that the Material Icons font is

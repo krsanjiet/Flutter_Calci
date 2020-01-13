@@ -19,7 +19,13 @@ class MyApp extends StatelessWidget {
             title: Text("Login Page"),
           ),
           body: Container(
-            color: Color(0xffffffff),
+           // color: Color(0xffffffff),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage('assets/backgroundtheme1.png'),
+                fit: BoxFit.fill,
+              )
+            ),
             child: Column(
               children: <Widget>[
                 Container(
@@ -33,7 +39,8 @@ class MyApp extends StatelessWidget {
                   padding: EdgeInsets.only(left:10,right: 10),
                   margin: EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    color: Color(0xffF2F5F3),
+                    //color: Color(0xffF2F5F3),
+                    color: Colors.grey.shade200.withOpacity(0.5),
                     border: Border.all(
                       width: 2,
                       color: Color(0xff4f5b66),
@@ -69,10 +76,11 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left:15, right: 15,top: 15,bottom: 30),
+                  margin: EdgeInsets.only(left:15, right: 15,top: 15,bottom: 35),
                   padding: EdgeInsets.only(left:10, right: 10),
                   decoration: BoxDecoration(
-                    color: Color(0xffF2F5F3),
+                    //color: Color(0xffF2F5F3),
+                    color: Colors.grey.shade200.withOpacity(0.5),
                     border: Border.all(
                       width: 2,
                       color: Color(0xff4f5b66),
@@ -84,6 +92,7 @@ class MyApp extends StatelessWidget {
                   child: TextFormField(
                     style: TextStyle(
                       color: Color(0xffe5e5e5),
+                      //color: Colors.grey.shade200.withOpacity(0.5),
                       fontSize: 20,
                     ),
                     obscureText: true,
@@ -108,20 +117,10 @@ class MyApp extends StatelessWidget {
                     },
                   ),
                 ),
-                // Container(
-                //   margin: EdgeInsets.only(top: 30),
-                //   decoration: BoxDecoration(
-
-                //     color: Colors.grey.shade200.withOpacity(0.5),
-                //     border: Border.all(
-                //       width: 2,
-                //       color: Color(0xff4f5b66),
-                //     ),
-                //     borderRadius: BorderRadius.circular(10),
-                //   ),
+               
                 RaisedButton(
-                  color: Colors.grey.shade200.withOpacity(0.5),
-                  padding: EdgeInsets.only(left: 25,right: 25,top: 8,bottom: 8),
+                  color: Colors.white24.withOpacity(0.5),
+                  padding: EdgeInsets.only(left: 30,right: 30,top: 10,bottom: 10),
                   child: Text(
                     'Login',
                     style: TextStyle(
