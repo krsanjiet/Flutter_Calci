@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:anim_login_1/Home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +29,19 @@ class stateClass extends State<HomePage> with SingleTickerProviderStateMixin {
   Animation<double> sizeAnimation;
   int currentState = 0;
 
+
+  void validationAndSubmit() async{
+    try{
+    AuthResult user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: 'krsanjiet91@gmail.com',password: 'sanjeet');
+    
+    print(user);
+    } catch (e){
+      print('$e');
+    }
+  }
+
+
+
   @override
   void initState() {
     super.initState();
@@ -47,6 +62,7 @@ class stateClass extends State<HomePage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
     return Scaffold(
         appBar: AppBar(
           title: Text('Animation login'),
@@ -84,8 +100,8 @@ class stateClass extends State<HomePage> with SingleTickerProviderStateMixin {
                // color: Colors.teal,
              //   height: 0,
                 child: Center(
-                    child: Transform.scale(
-                  scale: sizeAnimation.value-1 ,
+                    child: Transform.rotate(
+                  angle: 0 ,
                   child: FlatButton(
                     onPressed: animationController.forward,
                     color: Colors.redAccent[200],
@@ -112,141 +128,33 @@ class stateClass extends State<HomePage> with SingleTickerProviderStateMixin {
                   ),
                 )),
               ),
+               Container(
+                //color: Colors.teal,
+                height: 80,
+                child: Center(
+                    child: Transform.scale(
+                  scale: sizeAnimation.value,
+                  child: FlatButton(
+                    // onPressed: (){
+                    //   Navigator.push(context, 
+                    //   MaterialPageRoute(builder: (context)=>Home()));
+                    // },
+                    onPressed: validationAndSubmit,
+                    color: Colors.redAccent[200],
+                    child: Text(
+                      'Move Forward',
+                      style: TextStyle(fontSize: 17, color: Colors.black),
+                    ),
+                  ),
+                )),
+              ),
 
-              // Transform.scale(
-              //   scale: sizeAnimation.value - 1,
-              //   child: Container(
-              //     width: 100,
-              //     height: 50,
-              //     decoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(10),
-              //       color: Colors.redAccent[100],
-              //     ),
-              //     padding: EdgeInsets.all(10),
-              //     child: InkWell(
-              //       onTap: animationController.forward,
-              //       child: Center(
-              //         child: Opacity(
-              //           opacity: 0.5,
-              //           child: Text(
-              //             'Sign in',
-              //             textAlign: TextAlign.center,
-              //             style: TextStyle(
-              //               fontSize: 18,
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // )
+
+             
             ],
           ),
         )));
   }
 }
 
-// import 'package:flutter/material.dart';
 
-// void main() => runApp(MyApp());
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: MyHomePage(title: 'Flutter Demo Home Page'),
-//     );
-//   }
-// }
-
-// class MyHomePage extends StatefulWidget {
-//   MyHomePage({Key key, this.title}) : super(key: key);
-
-//   final String title;
-
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
-
-//   AnimationController animationController;
-//   Animation<double> animation;
-//   Animation<double> sizeAnimation;
-//   int currentState = 0;
-
-//   @override
-//   void initState() {
-//     // TODO: implement initState
-//     super.initState();
-//     animationController = AnimationController(duration: Duration(milliseconds: 500),vsync: this);
-//     animation = Tween<double>(begin: 0,end: 60).animate(animationController)..addListener((){
-//       setState(() {
-
-//       });
-//     });
-//     sizeAnimation = Tween<double>(begin: 0,end: 1).animate(CurvedAnimation(parent: animationController,curve: Curves.fastOutSlowIn))..addListener((){
-//       setState(() {
-
-//       });
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(widget.title),
-//       ),
-//       body: Center(
-//         child: Container(
-//           width: 200,
-//           height: 300,
-//           child: Stack(
-//             children: <Widget>[
-//               Positioned(
-//                 bottom: 200,
-//                 child: Transform.scale(
-//                     scale: sizeAnimation.value,
-//                     child: FloatingActionButton(
-//                     backgroundColor: Colors.redAccent,
-//                     onPressed: (){},
-//                     child: Icon(Icons.cake)),
-//                 ),
-//               ),
-//               Positioned(
-//                 bottom: 0,
-
-//                 child: Transform.scale(
-//                   scale: sizeAnimation.value,
-//                     child: FloatingActionButton(
-//                     backgroundColor: Colors.green,
-//                     onPressed: (){
-//                       animationController.reverse();
-//                     },
-//                     child: Icon(Icons.close)),
-//                 ),
-//               ),
-//               Positioned(
-//                 bottom: 0,
-//                 child: Transform.scale(
-//                   scale: sizeAnimation.value - 0.5,
-//                    child: FloatingActionButton(
-//                     onPressed: (){
-//                       animationController.forward();
-
-//                     },
-//                     child: Icon(Icons.add)),
-//                 ),
-//               )
-//             ],
-//           ),
-//         ),
-//       )
-//     );
-//   }
-// }

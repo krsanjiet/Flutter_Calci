@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "116257737283",
+    "firebase_url": "https://animlogin1.firebaseio.com",
+    "project_id": "animlogin1",
+    "storage_bucket": "animlogin1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116257737283:android:bfc1225d973f7b0e30e2f6",
+        "android_client_info": {
+          "package_name": "com.example.anim_login_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116257737283-d9dhlp1ai15uu8o31c1162v1bijij680.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb44W0xZyrHQE1zUrLIHd0cZjYNIDDVR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116257737283-d9dhlp1ai15uu8o31c1162v1bijij680.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
